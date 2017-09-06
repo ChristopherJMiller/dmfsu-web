@@ -9,11 +9,11 @@ end
 ## Core
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.2'
+gem 'rails', '~> 5.0.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.7.1'
+gem 'puma', '~> 3.7'
 # Use MySQL2 for production database
 gem 'mysql2'
 # Use Redis adapter to run Action Cable in production
@@ -95,7 +95,7 @@ group :development do
   # Watches the filesystem for changes
   gem 'listen', '~> 3.1.5'
   # Keep the application loaded in the background
-  gem 'spring', '~> 2.0.1'
+  gem 'spring', '~> 2.0.2'
   # Update spring using listen
   gem 'spring-watcher-listen', '~> 2.0.1'
 end

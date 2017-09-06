@@ -236,8 +236,8 @@ DEPENDENCIES
   listen (~> 3.1.5)
   mysql2
   phony_rails
-  puma (~> 3.7.1)
-  rails (~> 5.0.2)
+  puma (~> 3.7)
+  rails (~> 5.0.5)
   rails-controller-testing (~> 1.0.1)
   redis (~> 3.0)
   responders (~> 2.3.0)
@@ -246,7 +246,7 @@ DEPENDENCIES
   rubocop-rspec
   sdoc (~> 1.0.0.rc2)
   simple_token_authentication (~> 1.15.1)
-  spring (~> 2.0.1)
+  spring (~> 2.0.2)
   spring-watcher-listen (~> 2.0.1)
   sqlite3
   tzinfo-data
