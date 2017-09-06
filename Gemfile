@@ -18,6 +18,8 @@ gem 'puma', '~> 3.7'
 gem 'mysql2'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 3.0'
+# Use Jquery for Javascript Library
+gem 'jquery-rails', '~> 4.3'
 
 ## Assets
 
