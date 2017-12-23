@@ -26,6 +26,14 @@ class AnnouncementsController < ApplicationController
     end
   end
 
+  def destroy
+    announcement = Announcement.find_by(id: params[:id])
+    return head status: :not_found unless announcement
+    return head status: :forbidden unless admin_signed_in?
+    announcement.destroy
+    head status: :ok
+  end
+
   private
 
   def announcement_parameters_create
