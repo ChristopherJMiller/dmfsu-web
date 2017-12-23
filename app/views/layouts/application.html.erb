@@ -9,18 +9,29 @@
   </head>
 
   <body>
-    <div class="ui segment gold-background">
     <div class="ui segment fixed gold-background">
       <div class="ui secondary menu container">
         <%= image_tag 'dmfsu.png', height: 48 %>
         <%= link_to 'Announcements', root_path, class: 'item' %>
         <div class="right menu">
-          <%= link_to 'Sign In', new_admin_session_path, class: 'item' %>
+          <% unless admin_signed_in?  %>
+            <%= link_to 'Sign In', new_admin_session_path, class: 'item' %>
+          <% else %>
+            <%= link_to destroy_admin_session_path ,method: :delete, class: 'item' do %>
+              Sign Out
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="ui container">
+      <% unless notice.nil? %>
+        <div class="ui segment blue"><%= notice %></div>
+      <% end %>
+      <% unless alert.nil? %>
+        <div class="ui segment red"><%= alert %></div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
