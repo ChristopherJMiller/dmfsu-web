@@ -29,9 +29,11 @@ ActiveRecord::Schema.define(version: 20_171_223_144_702) do
   end
 
   create_table "announcements", force: :cascade do |t|
+    t.integer "admin_id"
     t.datetime "created_at", null: false
     t.text "post"
     t.string "title"
     t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_announcements_on_admin_id"
   end
 end

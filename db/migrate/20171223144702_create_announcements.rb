@@ -3,6 +3,7 @@ class CreateAnnouncements < ActiveRecord::Migration[5.0]
     create_table :announcements do |t|
       t.string :title
       t.text :post
+      t.references :admin, index: true, foreign_key: true
 
       t.timestamps
     end
