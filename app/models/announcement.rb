@@ -5,5 +5,5 @@ class Announcement < ApplicationRecord
   validates :title, length: {maximum: 64}
   validates :post, presence: true
   validates :post, length: {maximum: 5120}
-  validates :user, presence: true
+  validates :admin, presence: true
 end

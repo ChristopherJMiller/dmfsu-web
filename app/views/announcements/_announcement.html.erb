@@ -1,11 +1,11 @@
 <div class="item">
   <div class="content">
-    <a class="header"><%= @announcement.title %></a>
+    <a class="header"><%= announcement.title %></a>
     <div class="meta">
       <span>Description</span>
     </div>
     <div class="description">
-      <p><%= @announcement.post %></p>
+      <p><%= announcement.post %></p>
     </div>
     <div class="extra">
       <%= link_to 'Additional Details', announcement_path(announcement) %>

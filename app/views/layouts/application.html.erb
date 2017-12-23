@@ -20,6 +20,7 @@
             <div class="ui dropdown item">
               <%= current_admin.email %> <i class="dropdown icon"></i>
               <div class="menu">
+                <%= link_to 'Post Announcement', new_announcement_path, class: 'item' %>
                 <%= link_to destroy_admin_session_path ,method: :delete, class: 'item' do %>
                   Sign Out
                 <% end %>
