@@ -10,7 +10,9 @@
 
   <body>
     <div class="ui segment gold-background">
+    <div class="ui segment fixed gold-background">
       <div class="ui secondary menu container">
+        <%= image_tag 'dmfsu.png', height: 48 %>
         <%= link_to 'Announcements', root_path, class: 'item' %>
         <div class="right menu">
           <%= link_to 'Sign In', new_admin_session_path, class: 'item' %>
