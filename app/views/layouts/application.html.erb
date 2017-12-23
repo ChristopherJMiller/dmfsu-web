@@ -11,15 +11,10 @@
   <body>
     <div class="ui segment gold-background">
       <div class="ui secondary menu container">
-        <a class="active item">
-          Home
-        </a>
-        <a class="item">
-          Messages
-        </a>
-        <a class="item">
-          Friends
-        </a>
+        <%= link_to 'Announcements', root_path, class: 'item' %>
+        <div class="right menu">
+          <%= link_to 'Sign In', new_admin_session_path, class: 'item' %>
+        </div>
       </div>
     </div>
     <p class="notice"><%= notice %></p>
