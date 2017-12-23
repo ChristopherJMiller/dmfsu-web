@@ -17,9 +17,14 @@
           <% unless admin_signed_in?  %>
             <%= link_to 'Sign In', new_admin_session_path, class: 'item' %>
           <% else %>
-            <%= link_to destroy_admin_session_path ,method: :delete, class: 'item' do %>
-              Sign Out
-            <% end %>
+            <div class="ui dropdown item">
+              <%= current_admin.email %> <i class="dropdown icon"></i>
+              <div class="menu">
+                <%= link_to destroy_admin_session_path ,method: :delete, class: 'item' do %>
+                  Sign Out
+                <% end %>
+              </div>
+            </div>
           <% end %>
         </div>
       </div>
