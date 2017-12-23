@@ -11,6 +11,11 @@ class AnnouncementsController < ApplicationController
     respond_with @announcement
   end
 
+  def show
+    @announcement = Announcement.find_by(id: params[:id])
+    respond_with @announcement
+  end
+
   def create
     return head status: :forbidden unless admin_signed_in?
     announcement = Announcement.new(announcement_parameters_create)
