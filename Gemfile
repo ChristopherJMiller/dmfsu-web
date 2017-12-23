@@ -27,6 +27,9 @@ gem 'jquery-rails', '~> 4.3'
 gem 'jbuilder', '~> 2.6.3'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 1.0.0.rc2', group: :doc
+# semantic ui for views
+gem 'semantic-ui-sass', '~> 2.2', '>= 2.2.1.1'
+gem 'devise-semantified', git: 'https://github.com/ajex13/devise-semantified.git'
 
 ## Models
 

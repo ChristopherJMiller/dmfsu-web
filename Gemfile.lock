@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/ajex13/devise-semantified.git
+  revision: 0724fc3bda333d7540f28e1fd60774e116d6fc9c
+  specs:
+    devise-semantified (0.1.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -187,8 +193,15 @@ GEM
       rubocop (>= 0.42.0)
     ruby-progressbar (1.9.0)
     ruby_dep (1.5.0)
+    sass (3.5.4)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
     sdoc (1.0.0.rc3)
       rdoc (~> 5.0)
+    semantic-ui-sass (2.2.12.1)
+      sass (>= 3.2)
     simple_token_authentication (1.15.1)
       actionmailer (>= 3.2.6, < 6)
       actionpack (>= 3.2.6, < 6)
@@ -233,6 +246,7 @@ DEPENDENCIES
   delayed_job (~> 4.1.2)
   delayed_job_active_record (~> 4.1.1)
   devise (~> 4.2.1)
+  devise-semantified!
   factory_girl_rails (~> 4.8.0)
   ffaker (~> 2.5.0)
   fix-db-schema-conflicts (~> 2.0.0)
@@ -251,6 +265,7 @@ DEPENDENCIES
   rubocop (~> 0.48.1)
   rubocop-rspec
   sdoc (~> 1.0.0.rc2)
+  semantic-ui-sass (~> 2.2, >= 2.2.1.1)
   simple_token_authentication (~> 1.15.1)
   spring (~> 2.0.2)
   spring-watcher-listen (~> 2.0.1)

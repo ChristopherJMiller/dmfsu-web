@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "semantic-ui";
+
+.gold-background {
+  background-color: rgba(233, 218, 191, 1) !important;
+}
+
+.field_with_errors {
+  @extend .field;
+  @extend .error;
+}
