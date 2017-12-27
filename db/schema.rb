@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_171_223_144_702) do
+ActiveRecord::Schema.define(version: 20_171_227_195_644) do
   create_table "admins", force: :cascade do |t|
+    t.boolean "approved", default: false
     t.datetime "created_at", null: false
     t.datetime "current_sign_in_at"
     t.string "current_sign_in_ip"
