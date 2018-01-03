@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root to: "announcements#index"
 
   resources :announcements, except: [:edit, :update]
+
+  resources :events, except: [:edit, :update]
 end

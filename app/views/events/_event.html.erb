@@ -1,0 +1,11 @@
+<div class="item">
+  <div class="content">
+    <a class="header"><%= event.title %></a>
+    <div class="description">
+      <p><%= truncate event.description, length: 100, seperator: ' ' %></p>
+    </div>
+    <div class="extra">
+      <%= link_to 'Additional Details', event_path(event) %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<h1><%= @event.title %></h1>
+<hr>
+<p><%= simple_format @event.description %></p>
+<% if admin_signed_in? %>
+  <%= button_to 'Remove Event', { action: 'destroy', id: @event.id }, method: :delete, remote: true, class: 'ui negative basic button', data: { confirm: "Are you sure?" } %>
+<% end %>
