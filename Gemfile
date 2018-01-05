@@ -61,7 +61,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   # Rspec for TTD
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 3.7'
   # Test controllers using assigns
   gem 'rails-controller-testing', '~> 1.0.1'
   # Create database objects during testing with ease
