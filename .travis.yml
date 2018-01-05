@@ -1,8 +1,5 @@
 language: ruby
-rvm:
- - 2.4.1
-
- addons:
+rvm: 2.4.1
+addons:
   apt:
-    packages:
-    - libmysqlclient-dev
+    packages: libmysqlclient-dev
