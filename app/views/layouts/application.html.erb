@@ -37,7 +37,16 @@
       <% unless alert.nil? %>
         <div class="ui segment red"><%= alert %></div>
       <% end %>
-      <%= yield %>
+      <% unless admin_signed_in? %>
+        <%= yield %>
+      <% else %>
+        <% if current_admin.approved? %>
+          <%= yield %>
+        <% else %>
+          <h1>Your Account is not approved yet.</h1>
+          <h3>Please contact the webmaster or a FSU Dance Marathon Officer to approve your account.</h3>
+        <% end %>
+      <% end %>
     </div>
   </body>
 </html>

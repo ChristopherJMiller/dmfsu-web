@@ -17,7 +17,7 @@ class AnnouncementsController < ApplicationController
   end
 
   def create
-    return head status: :forbidden unless admin_signed_in?
+    return head status: :forbidden unless admin_signed_in? and current_admin.approved?
     announcement = Announcement.new(announcement_parameters_create)
     if announcement.save
       head status: :created, location: announcement_path(announcement)

@@ -17,7 +17,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    return head status: :forbidden unless admin_signed_in?
+    return head status: :forbidden unless admin_signed_in? and current_admin.approved?
     event = Event.new(event_parameters_create)
     if event.save
       head status: :created, location: event_path(event)
