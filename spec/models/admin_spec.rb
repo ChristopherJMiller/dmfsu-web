@@ -8,26 +8,22 @@ RSpec.describe Admin, type: :model do
   end
 
   it 'is not valid when missing a name' do
-    new_admin = admin
-    new_admin.name = nil
-    expect(new_admin).to_not be_valid
+    admin.name = nil
+    expect(admin).to_not be_valid
   end
 
   it 'is not valid when missing an email' do
-    new_admin = admin
-    new_admin.email = nil
-    expect(new_admin).to_not be_valid
+    admin.email = nil
+    expect(admin).to_not be_valid
   end
 
   it 'is not valid when missing a password' do
-    new_admin = admin
-    new_admin.password = nil
-    expect(new_admin).to_not be_valid
+    admin.password = nil
+    expect(admin).to_not be_valid
   end
 
   it 'is not valid when the password and password confirmation do not match' do
-    new_admin = admin
-    new_admin.password = ''
-    expect(new_admin).to_not be_valid
+    admin.password = ''
+    expect(admin).to_not be_valid
   end
 end

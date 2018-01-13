@@ -8,20 +8,17 @@ RSpec.describe Announcement, type: :model do
   end
 
   it 'is not valid when missing a title' do
-    new_announcement = announcement
-    new_announcement.title = nil
+    announcement.title = nil
     expect(announcement).to_not be_valid
   end
 
   it 'is not valid when missing a post body' do
-    new_announcement = announcement
-    new_announcement.post = nil
+    announcement.post = nil
     expect(announcement).to_not be_valid
   end
 
   it 'is not valid when missing an author' do
-    new_announcement = announcement
-    new_announcement.admin = nil
+    announcement.admin = nil
     expect(announcement).to_not be_valid
   end
 end

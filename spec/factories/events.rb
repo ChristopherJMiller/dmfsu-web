@@ -1,8 +1,11 @@
+require 'ffaker'
+
 FactoryGirl.define do
   factory :event do
-    title "MyString"
-    description "MyText"
-    start_time "2018-01-03 18:03:35"
-    end_time "2018-01-03 18:03:35"
+    title FFaker::HipsterIpsum.words
+    description FFaker::HipsterIpsum.paragraph
+    location FFaker::Address.street_address
+    start_time FFaker::Time.datetime
+    end_time FFaker::Time.datetime
   end
 end
