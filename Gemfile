@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.6.3'
 gem 'sdoc', '~> 1.0.0.rc2', group: :doc
 # semantic ui for views
 gem 'semantic-ui-sass', '~> 2.2', '>= 2.2.1.1'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+# Use devise-semantified to do all of the semantic ui work
 gem 'devise-semantified', git: 'https://github.com/ajex13/devise-semantified.git'
 
 ## Models
