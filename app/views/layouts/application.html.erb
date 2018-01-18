@@ -24,6 +24,7 @@
               <%= current_admin.name %> <i class="dropdown icon"></i>
               <div class="menu">
                 <% if current_admin.approved? %>
+                  <%= link_to 'Admin Dashboard', dashboard_path, class: 'item' %>
                   <%= link_to 'Post Announcement', new_announcement_path, class: 'item' %>
                   <%= link_to 'Create Event', new_event_path, class: 'item' %>
                 <% end %>

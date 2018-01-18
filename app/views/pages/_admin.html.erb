@@ -1,9 +1,11 @@
 <tr>
   <td class="collapsing">
-    <%= form_for admin, url: update_admin_path(admin.id), remote: true do |f| %>
-      <div class="ui fitted slider checkbox">
-        <%= f.check_box :approved %><label></label>
-      </div>
+    <% if admin != current_admin %>
+      <%= form_for admin, url: update_admin_path(admin.id), remote: true do |f| %>
+        <div class="ui fitted slider checkbox">
+          <%= f.check_box :approved %><label></label>
+        </div>
+      <% end %>
     <% end %>
   </td>
   <td><%= admin.name %></td>
