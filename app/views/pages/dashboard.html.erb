@@ -1,0 +1,22 @@
+<table class="ui compact celled definition table" id="adminTable">
+  <thead>
+    <tr>
+      <th>Activate</th>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "admin", collection: @admins %>
+  </tbody>
+  <tfoot class="full-width">
+    <tr>
+      <th></th>
+      <th colspan="4">
+        <div class="ui right floated small primary labeled icon button" id="submitAdmins">
+          <i class="user icon"></i> Update Users
+        </div>
+      </th>
+    </tr>
+  </tfoot>
+</table>

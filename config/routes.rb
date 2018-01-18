@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   resources :announcements, except: [:edit, :update]
 
   resources :events, except: [:edit, :update]
+
+  get '/dashboard/', to: "pages#dashboard"
+
+  patch '/admins/:id', to: "pages#update", as: :update_admin
 end

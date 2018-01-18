@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dmfsu</title>
+    <title>DMFSU Control Panel</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    params[:controller], media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag params[:controller], 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -13,6 +15,7 @@
       <div class="ui secondary menu container">
         <%= image_tag 'dmfsu.png', height: 48 %>
         <%= link_to 'Announcements', root_path, class: 'item' %>
+        <%= link_to 'Events', events_path, class: 'item' %>
         <div class="right menu">
           <% unless admin_signed_in?  %>
             <%= link_to 'Sign In', new_admin_session_path, class: 'item' %>
