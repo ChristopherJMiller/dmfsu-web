@@ -1,5 +1,21 @@
+sudo: required
 language: ruby
 rvm: 2.4.1
+services:
+  - docker
 addons:
   apt:
     packages: libmysqlclient-dev
+
+before_install:
+  - docker build -t froger/dmfsu:$TRAVIS_TAG .
+  - docker run froger/dmfsu:$TRAVIS_TAG /bin/sh -c "cd /usr/src/app; rails spec"
+
+script:
+  - rails spec
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+    docker push USER/REPO:$TRAVIS_TAG;
+    fi
