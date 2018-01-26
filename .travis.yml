@@ -9,10 +9,9 @@ addons:
 
 before_install:
   - docker build -t froger/dmfsu .
-  - docker run froger/dmfsu /bin/sh -c "cd /usr/src/app; rails spec"
 
 script:
-  - rails spec
+  - docker run froger/dmfsu /bin/sh -c "cd /usr/src/app; rails spec;"
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then

@@ -13,14 +13,15 @@ class AnnouncementsController < ApplicationController
 
   def show
     @announcement = Announcement.find_by(id: params[:id])
+    not_found unless @announcement
     respond_with @announcement
   end
 
   def create
-    return head status: :forbidden unless admin_signed_in? and current_admin.approved?
+    return head :forbidden unless admin_signed_in? and current_admin.approved?
     announcement = Announcement.new(announcement_parameters_create)
     if announcement.save
-      head status: :created, location: announcement_path(announcement)
+      head :created, location: announcement_path(announcement)
     else
       render json: {error: announcement.errors}, status: :bad_request
     end
@@ -28,10 +29,10 @@ class AnnouncementsController < ApplicationController
 
   def destroy
     announcement = Announcement.find_by(id: params[:id])
-    return head status: :not_found unless announcement
-    return head status: :forbidden unless admin_signed_in?
+    return head :not_found unless announcement
+    return head :forbidden unless admin_signed_in? and current_admin.approved?
     announcement.destroy
-    head status: :ok
+    head :ok
   end
 
   private
@@ -40,5 +41,9 @@ class AnnouncementsController < ApplicationController
     parameters = params.require(:announcement).permit(:title, :post)
     parameters[:admin] = current_admin
     parameters
+  end
+
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
   end
 end
