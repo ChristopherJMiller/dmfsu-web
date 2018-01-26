@@ -13,14 +13,15 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
+    not_found unless @event
     respond_with @event
   end
 
   def create
-    return head status: :forbidden unless admin_signed_in? and current_admin.approved?
+    return head :forbidden unless admin_signed_in? and current_admin.approved?
     event = Event.new(event_parameters_create)
     if event.save
-      head status: :created, location: event_path(event)
+      head :created, location: event_path(event)
     else
       render json: {error: event.errors}, status: :bad_request
     end
@@ -28,10 +29,10 @@ class EventsController < ApplicationController
 
   def destroy
     event = Event.find_by(id: params[:id])
-    return head status: :not_found unless event
-    return head status: :forbidden unless admin_signed_in?
+    return head :not_found unless event
+    return head :forbidden unless admin_signed_in? and current_admin.approved?
     event.destroy
-    head status: :ok
+    head :ok
   end
 
   private
@@ -39,5 +40,9 @@ class EventsController < ApplicationController
   def event_parameters_create
     parameters = params.require(:event).permit(:title, :description, :location, :start_time, :end_time)
     parameters
+  end
+
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
   end
 end
