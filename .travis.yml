@@ -8,7 +8,7 @@ addons:
     packages: libmysqlclient-dev
 
 before_install:
-  - docker build -t froger/dmfsu:$TRAVIS_TAG .
+  - docker build -t froger/dmfsu .
   - docker run froger/dmfsu:$TRAVIS_TAG /bin/sh -c "cd /usr/src/app; rails spec"
 
 script:
@@ -16,6 +16,7 @@ script:
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker tag froger/dmfsu froger/dmfsu:$TRAVIS_TAG;
     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
     docker push USER/REPO:$TRAVIS_TAG;
     fi
