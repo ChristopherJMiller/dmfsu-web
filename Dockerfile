@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 ADD Gemfile* ./
 RUN bundle install --without development test
 ADD . .
-RUN rake assets:precompile
+RUN RAILS_ENV=production bin/rails assets:precompile
 
 EXPOSE 3000
 RUN chmod +x start.sh
