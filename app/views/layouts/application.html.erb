@@ -1,14 +1,59 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dmfsu</title>
+    <title>DMFSU Control Panel</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    params[:controller], media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag params[:controller], 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="ui segment fixed gold-background">
+      <div class="ui secondary menu container">
+        <%= image_tag 'dmfsu.png', height: 48 %>
+        <%= link_to 'Announcements', root_path, class: 'item' %>
+        <%= link_to 'Events', events_path, class: 'item' %>
+        <div class="right menu">
+          <% unless admin_signed_in?  %>
+            <%= link_to 'Sign In', new_admin_session_path, class: 'item' %>
+          <% else %>
+            <div class="ui dropdown item">
+              <%= current_admin.name %> <i class="dropdown icon"></i>
+              <div class="menu">
+                <% if current_admin.approved? %>
+                  <%= link_to 'Admin Dashboard', dashboard_path, class: 'item' %>
+                  <%= link_to 'Post Announcement', new_announcement_path, class: 'item' %>
+                  <%= link_to 'Create Event', new_event_path, class: 'item' %>
+                <% end %>
+                <%= link_to destroy_admin_session_path ,method: :delete, class: 'item' do %>
+                  Sign Out
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="ui container">
+      <% unless notice.nil? %>
+        <div class="ui segment blue"><%= notice %></div>
+      <% end %>
+      <% unless alert.nil? %>
+        <div class="ui segment red"><%= alert %></div>
+      <% end %>
+      <% unless admin_signed_in? %>
+        <%= yield %>
+      <% else %>
+        <% if current_admin.approved? %>
+          <%= yield %>
+        <% else %>
+          <h1>Your Account is not approved yet.</h1>
+          <h3>Please contact the webmaster or a FSU Dance Marathon Officer to approve your account.</h3>
+        <% end %>
+      <% end %>
+    </div>
   </body>
 </html>

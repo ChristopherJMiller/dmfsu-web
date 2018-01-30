@@ -1,0 +1,16 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t froger/dmfsu .
+
+script:
+  - docker run froger/dmfsu /bin/sh -c "cd /usr/src/app; rails spec;"
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker tag froger/dmfsu froger/dmfsu:$TRAVIS_TAG;
+    docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+    docker push USER/REPO:$TRAVIS_TAG;
+    fi

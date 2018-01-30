@@ -1,0 +1,11 @@
+<div class="item">
+  <div class="content">
+    <a class="header"><%= announcement.title %></a>
+    <div class="description">
+      <p><%= truncate announcement.post, length: 100, seperator: ' ' %></p>
+    </div>
+    <div class="extra">
+      <%= link_to 'Additional Details', announcement_path(announcement) %>
+    </div>
+  </div>
+</div>
