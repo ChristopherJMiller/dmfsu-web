@@ -6,7 +6,7 @@ before_install:
   - docker build -t froger/dmfsu .
 
 script:
-  - docker run froger/dmfsu /bin/sh -it -c "cd /usr/src/app; rails spec;"
+  - docker run froger/dmfsu /bin/sh -c "cd /usr/src/app; rails spec;"
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
