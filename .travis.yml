@@ -12,5 +12,5 @@ after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker tag froger/dmfsu froger/dmfsu:$TRAVIS_TAG;
     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
-    docker push USER/REPO:$TRAVIS_TAG;
+    docker push froger/dmfsu:$TRAVIS_TAG;
     fi
