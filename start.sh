@@ -1,3 +1,4 @@
 #!/bin/sh
-rake db:create db:migrate
+rails assets:precompile
+rake db:migrate
 puma -C config/puma.rb
