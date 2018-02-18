@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   resources :events, except: [:edit, :update]
 
-  get '/dashboard/', to: "pages#dashboard"
+  post '/push-token', to: 'push_notification_tokens#create'
 
+  get '/dashboard/', to: "pages#dashboard"
   patch '/admins/:id', to: "pages#update", as: :update_admin
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_180_103_230_335) do
+ActiveRecord::Schema.define(version: 20_180_218_214_347) do
   create_table "admins", force: :cascade do |t|
     t.boolean "approved", default: false
     t.datetime "created_at", null: false
@@ -46,6 +46,12 @@ ActiveRecord::Schema.define(version: 20_180_103_230_335) do
     t.string "location"
     t.datetime "start_time"
     t.string "title"
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "push_notification_tokens", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "token"
     t.datetime "updated_at", null: false
   end
 end

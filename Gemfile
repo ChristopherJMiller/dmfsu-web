@@ -58,6 +58,8 @@ gem 'delayed_job', '~> 4.1.2'
 # Use ActiveRecord with Delayed Job
 gem 'delayed_job_active_record', '~> 4.1.1'
 
+gem 'exponent-server-sdk'
+
 
 
 group :development, :test do
